@@ -44,8 +44,42 @@
 \label{f3the}
 \end{figure}
 \section{}
+根据KCL，KVL，可以得到
+$$\begin{cases}
+\dot{x_3}=\frac{1}{C_3}x_4 \\
+\dot{x_4}=-\frac{1}{L_1}x_1-\frac{1}{L_1}x_3+\frac{1}{L_1}u \\
+\dot{x_2}=-\frac{1}{C_2R}x_1-\frac{1}{C_2R}x_2+\frac{1}{C_2R}u \\
+\dot{x_1}=\frac{1}{C_1}x_4-\frac{C_2}{C_1}\dot{x_2} = \frac{1}{C_1R}x_1+\frac{1}{C_1R}x_2+\frac{1}{C_1}x_4-\frac{1}{C_1R}u
+\end{cases}$$
+并进一步得到$$y=RC_2\dot{x_2}=-x_1-x_2+u$$因此得到
+$$\begin{cases}
+
+\mathbf{A}=\begin{pmatrix}
+\frac{1}{RC_1} & \frac{1}{RC_1} & 0 & \frac{1}{C_1} \\
+-\frac{1}{RC_2} & -\frac{1}{RC_2} & 0 & 0 \\
+0 & 0 & 0 & \frac{1}{C_3} \\
+-\frac{1}{L_1} & 0 & -\frac{1}{L_1} & 0
+\end{pmatrix} \\ 
+\\ 
+\mathbf{b}=\begin{pmatrix}
+-\frac{1}{RC_1} &
+\frac{1}{RC_2} &
+0 &
+\frac{1}{L_1}
+\end{pmatrix}^\mathbf{T}\\
+\\ 
+\mathbf{c}^\mathbf{T}=\begin{pmatrix}
+-1 & -1 & 0 & 0 \end{pmatrix}\\
+\\ 
+\mathbf{d}=\begin{pmatrix} 1 \end{pmatrix}
+\end{cases}$$
 \section{}
+由泊肃叶定律，可以得到状态方程为 $$\begin{cases}
+c_1x_1=u_1+\frac{\rho g}{R_2}x_2-\frac{\rho g}{R_2}x_1-\frac{\rho g}{R_1}x_1 \\
+c_2x_2=u_2-\frac{\rho g}{R_2}x_2+\frac{\rho g}{R_2}x_1\end{cases}$$
+输出方程为$$y=\frac{\rho g}{R_1}x_1$$其中$\rho$是液体的密度，$g$是重力加速度
 \section{}
+记滑块1的位置为$F_1$滑块2的位置为$F_2$，由牛顿第二定律得
 \section{}
 \section{}
 \section{}
