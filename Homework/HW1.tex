@@ -10,6 +10,7 @@
 \begin {document}
 \maketitle
 \section{}
+文章主要探讨了利用频率响应作为检测传递函数的方法对硬盘控制系统的优化等问题，这里略去
 \section{}
 从图\ref{f1ori}中可以预计，系统的传递函数可以表示为$G(s)=\frac{K}{s(T_1s+1)(T_2s+1)},T_1>0,T_2>0$可以根据相频图估计转折频率$\omega_1=18.14\rm{rad/s},\omega_2=1103\rm{rad/s}$可得$T_1=\frac{1}{\omega_1}=0.551\rm{s},T_2=\frac{1}{\omega_2}=0.9066\times 10^{-3}\rm{s}$，同时，考虑辐频在$\omega=1\rm{rad/s}$附近的增益可得$20lg(K)=-9.2;K=0.346$因此系统传递函数可以表示为$$G(s)=\frac{0.346}{s(0.551s+1)(0.9066\times 10^{-3}s+1)}$$，对应的Bode图如图\ref{f1the}所示，可以看出和实际bode图\ref{f1ori}还是基本符合的
 \begin{figure}
