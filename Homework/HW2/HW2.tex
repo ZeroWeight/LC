@@ -1,0 +1,189 @@
+\documentclass[UTF8,a4paper]{ctexart}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{pdfpages}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{listings}
+\title{线控作业1}
+\author{张蔚桐\ 2015011493\ 自55}
+\begin {document}
+\maketitle
+\section{}
+根据能控性代数判据可以得到$$\mathbf{[B \ AB \ A^2B]}=\begin{pmatrix}
+0&0&1 \\
+0&1&-6 \\
+1&-6&25
+\end{pmatrix}$$
+$rank(\mathbf{[B\  AB\  A^2B]})=3$，行满秩可得系统能控
+\section{}
+\subsection{}
+显然系统在A为Jordan标准型基础上B矩阵在第二行出现全零行不可控。
+\subsection{}
+$$\mathbf{[B \ AB \ A^2B]}=\begin{pmatrix}
+2&1&3&2&5&4 \\
+1&1&2&2&4&4 \\
+-1&-1&-2&-2&-4&-4
+\end{pmatrix}$$
+$rank(\mathbf{[B\  AB\  A^2B]})=2$，行不满秩可得系统不可控
+\section{}
+$$\mathbf{[B \ AB \ A^2B\ A^3B]}=\begin{pmatrix}
+0&1&0&1 \\
+1&0&1&0 \\
+0&-1&0&-11\\
+-1&0&-11&0
+\end{pmatrix}$$
+$rank(\mathbf{[B \ AB \ A^2B\ A^3B]})=4$，行满秩可得系统能控
+$$\mathbf{[C \ CA \ CA^2\ CA^3]^T}=\begin{pmatrix}
+1&0&0&0\\
+0&1&0&0\\
+0&0&-1&0\\
+0&0&0&-1\end{pmatrix}$$
+$rank(\mathbf{[C \ CA \ CA^2\ CA^3]^T})=4$，列满秩系统可观
+\section{}
+\subsection{可控条件}
+$$\mathbf{[B \ AB ]}=\begin{pmatrix}
+1&a+b \\
+1&c+d \end{pmatrix}$$
+可控条件显然为$a+b \neq c+d$
+\subsection{可观条件}
+$$\mathbf{[C \ CA ]^T}=\begin{pmatrix}
+1&0\\
+a&0\end{pmatrix}$$
+系统永不可观
+\section{}
+$$\mathbf{[B \ AB \ A^2B]}=\begin{pmatrix}
+0&4&-8\\
+4&-4&4\\
+3&-6&12
+\end{pmatrix}$$
+于是$P_1=[0\ 0\ 1]\mathbf{[B \ AB \ A^2B]}^{-1}=\begin{pmatrix}
+\frac{1}{4}&-\frac{1}{4}&\frac{1}{3}\end{pmatrix}$
+并进一步得到$$\mathbf{T^{-1}}=\begin{pmatrix}
+\mathbf{P_1}\\
+\mathbf{P_1A}\\
+\mathbf{P_1A^2}\end{pmatrix}
+=\begin{pmatrix}
+\frac{1}{4}&-\frac{1}{4}&\frac{1}{3}\\
+-\frac{1}{4}&\frac{1}{2}&-\frac{2}{3}\\
+\frac{1}{4}&-\frac{3}{4}&\frac{4}{3}\end{pmatrix}$$
+于是有$$\mathbf{A'}=\mathbf{T^{-1}AT}=\begin{pmatrix}
+0&1&0\\
+0&0&1\\
+-2&-5&-4\end{pmatrix}$$
+$$\mathbf{B'}=\mathbf{T^{-1}B}=\begin{pmatrix}0\\0\\1\end{pmatrix}$$将系统化为能控标准型
+\section{}
+系统状态方程可以表示为$$\mathbf{A}=\begin{pmatrix}
+0&1&0\\
+-3&-4&0\\
+2&1&-2\end{pmatrix}\ , \ 
+\mathbf{B}=\begin{pmatrix}0\\1\\0\end{pmatrix} \ , \ 
+\mathbf{C}=\begin{pmatrix}0&0&1\end{pmatrix}$$ 
+$$\mathbf{[B \ AB \ A^2B]}=\begin{pmatrix}
+0&1&-4\\
+1&-4&13\\
+0&1&-4
+\end{pmatrix}$$ $rank(\mathbf{[B \ AB \ A^2B]})=2$故系统不可控
+$$\mathbf{[C \ CA \ CA^2]}=\begin{pmatrix}
+0&0&1\\
+2&1&-2\\
+7&-4&4
+\end{pmatrix}$$ $rank(\mathbf{[C \ CA \ CA^2]})=3$故系统可观
+
+可以得到系统的传递函数为$$\mathbf{G=C(sI-A)^{-1}B}=\frac{1}{s^2+4s+3}$$
+\section{}
+\subsection{}
+$$\mathbf{G=C(sI-A)^{-1}B}=\frac{s+3}{s^2+2s-1}$$
+\subsection{}
+$$\mathbf{[B \ AB \ A^2B]}=\begin{pmatrix}
+0&1&-2\\
+0&0&0\\
+1&0&1
+\end{pmatrix}$$
+$rank(\mathbf{[B\  AB\  A^2B]})=2$，行不满秩可得系统不可控，于是构造其能控子系统
+取$\mathbf{[B \ AB \ A^2B]}$的前两列作为列向量，构造$$\mathbf{T}=\begin{pmatrix}
+0&1&0\\
+0&0&1\\
+1&0&0\end{pmatrix}$$
+于是$$\mathbf{A'=T^{-1}AT}=\begin{pmatrix}
+0&1&-4\\
+1&-2&2\\
+0&0&-2\end{pmatrix}$$
+$$\mathbf{b'=T^{-1}b}=\begin{pmatrix}1\\0\\0\end{pmatrix}$$
+$$\mathbf{C'=CT}=\begin{pmatrix}1&1&-1\end{pmatrix}$$
+得到系统的能控子系统为
+$$\Sigma(\begin{pmatrix}
+0&1\\
+1&-2\end{pmatrix},
+\begin{pmatrix}1\\0\end{pmatrix},
+\begin{pmatrix}1&1\end{pmatrix})$$
+\subsection{}
+$$\mathbf{[C \ CA \ CA^2]}=\begin{pmatrix}
+1&-1&1\\
+-1&0&1\\
+3&-6&-1
+\end{pmatrix}$$
+$rank(\mathbf{[C \ CA \ CA^2]})=3$,系统可观
+\section{}
+$$\mathbf{G}=\frac{1}{s^2+3s+2}\begin{pmatrix}
+2s+3&1\\
+3s+6&3s+6\end{pmatrix}$$
+于是可以顺利得到$$\mathbf{A}=\begin{pmatrix}
+0&1&0&0\\
+-2&-3&0&0\\
+0&0&0&1\\
+0&0&-2&-3\end{pmatrix}\ ,\ \mathbf{B}=\begin{pmatrix}0&0\\1&0\\0&0\\0&1\end{pmatrix}\ ,\ \mathbf{C}=\begin{pmatrix}
+3&2&1&0\\
+6&3&6&3\end{pmatrix}$$
+下面考虑将这个系统抽出能观部分，考察
+$$\mathbf{[C \ CA \ CA^2\  CA^3]}=\begin{pmatrix}
+3&2&1&0\\
+6&3&6&3\\
+-4&-3&0&1\\
+-6&-3&-6&-3\\
+6&5&-2&-3\\
+6&3&6&3\\
+-10&-9&6&7\\
+-6&-3&-6&-3
+\end{pmatrix}$$
+抽出线性无关列构成$$\mathbf{T}=\begin{pmatrix}
+3&2&1&0\\
+6&3&6&3\\
+1&0&0&0\\
+0&1&0&0\end{pmatrix}$$
+得到新的能观表述：
+$$\mathbf{A=TAT^{-1}}=\begin{pmatrix}
+-2&\frac{1}{3}&0&0\\
+0&-1&0&0\\
+0&0&0&1\\
+0&0&-2&-3\end{pmatrix}\ , \ \mathbf{b={Tb}}=\begin{pmatrix}
+2&0\\
+3&3\\
+0&0\\
+1&0\end{pmatrix}\ , \ \mathbf{C={CT^{-1}}}==\begin{pmatrix}
+1&0&0&0\\
+0&1&0&0\end{pmatrix}$$
+于是最小实现为
+$$\Sigma(\begin{pmatrix}
+-2&\frac{1}{3}\\
+0&-1\end{pmatrix},
+\begin{pmatrix}2&0\\3&3\end{pmatrix},
+\begin{pmatrix}1&0\\0&1\end{pmatrix})$$
+\section{}
+相关处理后有
+$$\mathbf{A}=\begin{pmatrix}
+-1&2\\
+1&0
+\end{pmatrix}\ ,\ \mathbf{B}=\begin{pmatrix}-2\\1\end{pmatrix}\ ,\ \mathbf{C}=\begin{pmatrix}1&-1\end{pmatrix}\ , \ \mathbf{d}=1$$
+$$\mathbf{[B \ AB ]}=\begin{pmatrix}
+-2&4\\
+1&-2
+\end{pmatrix}$$
+$rank(\mathbf{[B\  AB]})=1$，行不满秩可得系统不可控
+$$\mathbf{C \ CA ]}=\begin{pmatrix}
+1&-1\\
+-2&2
+\end{pmatrix}$$
+$rank(\mathbf{[C\  CA]})=1$，列不满秩可得系统不可观
+综上，系统不可观不可控
+\end{document}
