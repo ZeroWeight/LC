@@ -1,0 +1,45 @@
+\documentclass[UTF8,a4paper]{ctexart}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{pdfpages}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{listings}
+\title{线控作业3}
+\author{张蔚桐\ 2015011493\ 自55}
+\begin{document}
+\maketitle
+\section{}
+考虑这些二次型的实对称矩阵
+$$V_a(x)=\begin{pmatrix}
+1& 1 & -1 \\
+1& 3 & -2.5\\
+-1& -2.5 & 1\\
+\end{pmatrix}$$
+$V_a$的特征值为-0.74,0.58,5.15。故$V_a$不定
+$$V_b(x)=\begin{pmatrix}
+-1& 1 & -1 \\
+1& -3 & -0.5\\
+-1& -0.5 & -11\\
+\end{pmatrix}$$
+$V_b$的特征值为-11.12,-3.4134,-0.4677。故$V_b$负定
+$$V_c(x)=\begin{pmatrix}
+1& 2 & 0 \\
+2& 5 & 1\\
+0& 1 & 1\\
+\end{pmatrix}$$
+$V_c$的特征值为0,1,6故$V_c$。半正定
+\section{}
+\subsection{}
+构造$V(\mathbf{x})=x_1^2+2x_1x_2+x_2^2$显然$V(\mathbf{x})$正定，且当$\left|\left|\mathbf{x}\right|\right| \rightarrow \infty$时有$V(\mathbf{x}) \rightarrow \infty$
+\begin{equation}\begin{aligned}
+&V'(\mathbf{x})=\frac{\partial V}{\partial \mathbf{x}}\mathbf{A}\\& =2x_1(-x_1+x_2+x_1^2)+2x_1(-x_2+2x_1-x_1^2)+\\&2x_2(-x_1+x_2+x_1^2)+2x_2(-x_2+2x_1-x_1^2)\\& =2(x_1+x_2)x_1\end{aligned}\end{equation}
+\subsection{}
+构造$V(\mathbf{x})=x_1^2+x_2^2$显然$V(\mathbf{x})$正定，且当$\left|\left|\mathbf{x}\right|\right| \rightarrow \infty$时有$V(\mathbf{x}) \rightarrow \infty$
+
+\begin{equation}\begin{aligned}
+&V'(\mathbf{x})=\frac{\partial V}{\partial \mathbf{x}}\mathbf{A}\\& =2x_1(-x_1+x_1x_2)+2x_2(-x_2-2x_1-x_1^2)\\& =-2x_1^2+-2x_2^2\end{aligned}\end{equation}
+显然$V'(\mathbf{x})$负定，系统在原点处大范围渐进稳定
+\section{}
+
+\end{document}

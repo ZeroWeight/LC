@@ -1,0 +1,33 @@
+clc;clear;
+sum=10000;
+x_0=[0;1];
+A=[1,1;0,1];
+B=0;
+C=[1,0];
+K=zeros(2);
+M=zeros(2);
+P=[0.5,0;0,0.5];
+x=x_0;
+x_1=[0;0];
+arr=zeros(sum,3);
+X=[1:sum];
+Q=[1e-5,0;0,1e-5];
+R=0.1;
+s=x_0;
+y=0;
+for i=1:sum
+    s=A*s+mvnrnd([0,0],Q)';
+    y=C*s+normrnd(0,R);
+    arr(i,1)=s(1)/i;
+    arr(i,2)=y/i;
+    x=A*x;
+    M=A*P*A'+Q;
+    K=M*C'*(C*M*C'+R)^(-1);
+    x_1=x+K*(y-C*x);
+    arr(i,3)=x_1(1)/i;
+    P=M-K*C*M;
+end
+hold on;
+scatter(X,arr(:,1),'r');
+scatter(X,arr(:,2),'g');
+scatter(X,arr(:,3),'b');
